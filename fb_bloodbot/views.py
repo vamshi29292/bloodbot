@@ -460,7 +460,7 @@ def update_req_location(fid, message):
 def connect_req_donor(fid):
 	user = User.objects.get(fbId=fid)
 	reqeust = Request.objects.filter(recipient_id=fid, status="Open")[0]
-	donors = random.shuffle(User.objects.filter(location=request.location_id))[:20]
+	donors = random.shuffle(User.objects.filter(location=request.location_id))
 	message_to_donors = [
 		{'text':'%s %s blood needed in %s.'%(reqeust.bloodGroup, reqeust.rhesusFactor, request.location)},
 		{
